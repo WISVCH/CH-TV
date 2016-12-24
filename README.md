@@ -1,24 +1,11 @@
-# README
+# CH-TV
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Het doel van dit project gaat zijn om het oude TV systeem te vervangen. Er zal moeten worden nagedacht over backend en management van de slides, alsmede over hoe de pagina op de TV gaat werken.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `git clone https://github.com/WISVCH/CH-TV.git`
+- `cd CH-TV`
+- `bundle install`
+- `npm install`
+- `bin/rails server`
