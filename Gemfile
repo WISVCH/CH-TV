@@ -21,8 +21,6 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -32,6 +30,11 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Use sprockets beta for ES6 (babel-transpiler) & npm package (commoner) support
+gem 'sprockets', '4.0.0.beta4'
+gem 'babel-transpiler'
+gem 'sprockets-commoner'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
