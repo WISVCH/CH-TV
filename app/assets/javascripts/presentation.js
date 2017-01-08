@@ -1,3 +1,3 @@
-import {map} from 'lodash';
+import $ from 'jquery';
 
-console.log(map([1, 2, 3], (n) => n * 3));
+console.log($('#slides'));
