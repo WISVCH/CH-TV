@@ -29,6 +29,12 @@ gem 'jbuilder', '~> 2.5'
 # Boostrap CSS framework
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
+# Use Paperclip for image storage
+gem "paperclip", "~> 5.0.0"
+
+# Ruby readline because the rails console wouldn't work for me
+gem 'rb-readline'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
