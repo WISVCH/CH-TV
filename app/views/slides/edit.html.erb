@@ -1,5 +1,7 @@
 <h1>Editing Slide</h1>
 
+<%= image_tag @slide.content.image %>
+
 <%= render 'form', slide: @slide %>
 
 <%= link_to 'Show', @slide %> |

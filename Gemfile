@@ -26,14 +26,25 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
 # Boostrap CSS framework
 gem 'bootstrap', '~> 4.0.0.alpha6'
+
+# This is necessary for bootstrap tooltips
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
 
 # Use Paperclip for image storage
 gem "paperclip", "~> 5.0.0"
 
 # Ruby readline because the rails console wouldn't work for me
 gem 'rb-readline'
+
+# Nested layouts
+gem 'nestive', '~> 0.6.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

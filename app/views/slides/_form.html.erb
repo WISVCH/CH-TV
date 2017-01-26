@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control'%>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

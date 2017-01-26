@@ -12,6 +12,7 @@
   <tbody>
     <% @slides.each do |slide| %>
       <tr>
+        <td><%= image_tag slide.content.image(:thumb) %></td>
         <td><%= link_to 'Show', slide %></td>
         <td><%= link_to 'Edit', edit_slide_path(slide) %></td>
         <td><%= link_to 'Destroy', slide, method: :delete, data: { confirm: 'Are you sure?' } %></td>

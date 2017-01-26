@@ -1,10 +1,11 @@
 class SlidesController < ApplicationController
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
+  before_action :load_all_slides
 
   # GET /slides
   # GET /slides.json
   def index
-    @slides = Slide.all
+
   end
 
   # GET /slides/1
@@ -25,9 +26,10 @@ class SlidesController < ApplicationController
   # POST /slides.json
   def create
     @slide = Slide.new(slide_params)
+    @slide.content = ImageContent.new(image: params['slide']['image'])
 
     respond_to do |format|
-      if @slide.save
+      if @slide.content.save && @slide.save 
         format.html { redirect_to @slide, notice: 'Slide was successfully created.' }
         format.json { render :show, status: :created, location: @slide }
       else
@@ -67,8 +69,12 @@ class SlidesController < ApplicationController
       @slide = Slide.find(params[:id])
     end
 
+    def load_all_slides
+      @slides = Slide.all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def slide_params
-      params.fetch(:slide, {})
+      params.fetch(:slide, {}).permit(:content)
     end
 end

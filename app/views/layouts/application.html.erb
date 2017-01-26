@@ -3,13 +3,23 @@
   <head>
     <title>Tvsysteem</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
   <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
+    <%= area :navbar do %>
+      <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <%= link_to 'CH-TV', { controller: 'slides', action: 'index' }, class: 'navbar-brand' %>
+      </nav>
+    <% end %>
+
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag params[:controller] %>
   </body>
 </html>
