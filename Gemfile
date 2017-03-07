@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.1.0beta1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -50,7 +50,7 @@ gem 'nestive', '~> 0.6.0'
 # gem 'capistrano-rails', group: :development
 
 # Use sprockets beta for ES6 (babel-transpiler) & npm package (commoner) support
-gem 'sprockets', '4.0.0.beta4'
+gem 'sprockets', '3.7.0'
 gem 'babel-transpiler'
 gem 'sprockets-commoner'
 

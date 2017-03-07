@@ -21,3 +21,6 @@
 
 # paperclip images
 /public/system
+
+# ignore vendor files
+/vendor/bundle
