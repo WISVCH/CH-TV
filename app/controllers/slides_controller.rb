@@ -42,6 +42,12 @@ class SlidesController < ApplicationController
   # PATCH/PUT /slides/1
   # PATCH/PUT /slides/1.json
   def update
+
+    if params['slide'].present? && params['slide']['image'].present?
+      @slide.content = ImageContent.new(image: params['slide']['image'])
+      @slide.content.save
+    end
+
     respond_to do |format|
       if @slide.update(slide_params)
         format.html { redirect_to @slide, notice: 'Slide was successfully updated.' }

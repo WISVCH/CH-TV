@@ -13,8 +13,8 @@
 // NOTE: jQuery and Bootstrap are loaded this way because it fixes some problems. Other ES6 libraries
 // are better included through npm and import statements.
 //
-//= require global
 //= require jquery
 //= require tether
 //= require bootstrap
+//= require global
 
