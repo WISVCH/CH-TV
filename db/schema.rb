@@ -15,26 +15,26 @@ ActiveRecord::Schema.define(version: 20170109153047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "html_contents", force: :cascade do |t|
+  create_table "html_contents", id: :serial, force: :cascade do |t|
     t.string "code"
   end
 
-  create_table "image_contents", force: :cascade do |t|
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
+  create_table "image_contents", id: :serial, force: :cascade do |t|
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
     t.datetime "image_updated_at"
   end
 
-  create_table "slides", force: :cascade do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "name"
-    t.integer  "content_id"
-    t.string   "content_type"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "display_time"
+  create_table "slides", id: :serial, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "content_id"
+    t.string "content_type"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "display_time"
   end
 
 end

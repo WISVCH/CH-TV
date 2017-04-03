@@ -14,6 +14,7 @@
 // are better included through npm and import statements.
 //
 //= require jquery
+//= require jquery_ujs
 //= require tether
 //= require bootstrap
 //= require global

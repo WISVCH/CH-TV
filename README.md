@@ -9,3 +9,5 @@ Het doel van dit project gaat zijn om het oude TV systeem te vervangen. Er zal m
 - `bundle install`
 - `npm install`
 - `bin/rails server`
+
+NOTE: You can use `export DATABASE_URL='postgres://{user}:{password}@localhost/{database-name}'` to let rails know how to connect to the database.
