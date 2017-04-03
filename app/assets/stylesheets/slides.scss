@@ -1,3 +1,61 @@
 // Place all the styles related to the slides controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$sidebar_width: 240px;
+$menu_height: 54px;
+$mobile: 768px;
+
+html, body {
+  height: 100%;
+}
+
+.sidebar {
+  width: $sidebar_width;
+  height: calc(100% - #{$menu_height});
+  overflow-y: scroll;
+  float: left;
+  @media only screen and (max-width: $mobile) {
+    width: 100%;
+  }
+}
+
+.main {
+  height: calc(100% - #{$menu_height});
+  overflow-y: scroll;
+}
+
+@media only screen and (max-width: $mobile) {
+  body[data-action='index'] {
+    .main {
+      display: none;
+    }
+  }
+
+  body[data-action='edit'] {
+    .sidebar {
+      display: none;
+    }
+  }
+}
+
+.thumb {
+  border: 3px solid #f0f0f0;
+  margin-top: 5px;
+  width: 100%;
+  a, img {
+    width: 100%;
+  }
+  &:hover {
+    border-color: #eee;
+  }
+  &.active {
+    border-color: #00314d;
+  }
+}
+
+.slide_fullwidth {
+  img {
+    max-width: 100%;
+  }
+}

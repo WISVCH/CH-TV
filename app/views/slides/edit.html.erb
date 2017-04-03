@@ -1,8 +1,7 @@
 <h1>Editing Slide</h1>
 
-<%= image_tag @slide.content.image %>
+<div class="slide_fullwidth">
+  <%= image_tag @slide.content.image(:medium) %>
+</div>
 
 <%= render 'form', slide: @slide %>
-
-<%= link_to 'Show', @slide %> |
-<%= link_to 'Back', slides_path %>

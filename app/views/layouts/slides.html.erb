@@ -1,5 +1,22 @@
 <%= extends :application do %>
-  <div class="container margin-top">
+
+  <div class="sidebar">
+    <% @slides.each do |slide| %>
+      <% if(@slide.present? && @slide.id == slide.id) %>
+      <div class="thumb active">
+      <% else %>
+      <div class="thumb">
+      <% end %>
+        <%= link_to edit_slide_path(slide), :title => 'Edit' do %>
+          <%= image_tag slide.content.image(:thumb) %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= link_to 'New Slide', new_slide_path %>
+  </div>
+
+  <div class="main">
     <%= yield %>
   </div>
 <% end %>
