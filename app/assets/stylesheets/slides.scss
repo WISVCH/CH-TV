@@ -11,7 +11,10 @@ html, body {
 }
 
 .sidebar {
-  width: $sidebar_width;
+  background-color: #f0f0f0;
+  position: relative;
+  padding: 5px 5px;
+  width: $sidebar_width + 38px;
   height: calc(100% - #{$menu_height});
   overflow-y: scroll;
   float: left;
@@ -21,6 +24,7 @@ html, body {
 }
 
 .main {
+  padding: 10px 10px;
   height: calc(100% - #{$menu_height});
   overflow-y: scroll;
 }
@@ -40,17 +44,25 @@ html, body {
 }
 
 .thumb {
-  border: 3px solid #f0f0f0;
-  margin-top: 5px;
   width: 100%;
-  a, img {
+  a {
+    display: block;
+    padding: 5px 5px;
     width: 100%;
+    &:hover img {
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
+    }
+    img {
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+      @media only screen and (max-width: $mobile) {
+        width: 100%;
+      }
+    }
   }
-  &:hover {
-    border-color: #eee;
-  }
-  &.active {
-    border-color: #00314d;
+  &.active a {
+    img {
+      box-shadow: 0px 0px 10px 0px rgba(0,62,186,1);
+    }
   }
 }
 

@@ -1,6 +1,12 @@
 <%= extends :application do %>
 
   <div class="sidebar">
+    <div class="thumb thumb-newslide">
+      <%= link_to new_slide_path, :title => 'New Slide' do %>
+        <p><i class="fa fa-plus" aria-hidden="true"></i> New Slide</p>
+      <% end %>
+    </div>
+
     <% @slides.each do |slide| %>
       <% if(@slide.present? && @slide.id == slide.id) %>
       <div class="thumb active">
@@ -12,8 +18,6 @@
         <% end %>
       </div>
     <% end %>
-
-    <%= link_to 'New Slide', new_slide_path %>
   </div>
 
   <div class="main">
