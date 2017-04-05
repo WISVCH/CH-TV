@@ -57,9 +57,9 @@ $(document).ready(() => {
     // Reload slides every time
     // we arrive at the first slide.
     if (i == 0) {
-      loadActiveSlides(() => { setTimeout(() => { transition(i) }, 1000) });
+      loadActiveSlides(() => { setTimeout(() => { transition(i) }, 3000) });
     } else {
-      setTimeout(() => { transition(i) }, 1000);
+      setTimeout(() => { transition(i) }, 3000);
     }
   }
 });

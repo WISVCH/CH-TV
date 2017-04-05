@@ -1,9 +1,11 @@
 <%= extends :application do %>
 
   <div class="sidebar">
-    <div class="thumb thumb-newslide">
+    <div class="thumb thumb-newslide<% if(action_name == 'new') %> active<% end %>">
       <%= link_to new_slide_path, :title => 'New Slide' do %>
-        <p><i class="fa fa-plus" aria-hidden="true"></i> New Slide</p>
+        <p class="newslide">
+          New Slide
+        </p>
       <% end %>
     </div>
 
