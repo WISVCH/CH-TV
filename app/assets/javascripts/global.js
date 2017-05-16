@@ -1,6 +1,8 @@
 var diffDOM = require("diff-dom");
 
 $(document).ready(() => {
+  const TICK_SIZE = 1000;
+  var timer = 0;
   var i = 0;
   var slideElements;
   var $container = $('#slides');
@@ -16,7 +18,7 @@ $(document).ready(() => {
   });
 
   if ($container.length > 0) {
-    loadActiveSlides(() => { transition(i) });
+    loadActiveSlides(() => { transition(0); setInterval(loop, TICK_SIZE); });
   }
 
   function loadActiveSlides(callback) {
@@ -27,7 +29,7 @@ $(document).ready(() => {
       $.each(data, (i, slide) => {
         if (slide.content_type == 'ImageContent') {
           var element = 
-            "<div class=\"slide\">" + 
+            "<div class=\"slide\" data-duration=\"" + slide.display_time + "\">" + 
               "<img src=\"" + slide.content.resource_url + "\" />" + 
             "</div>";
 
@@ -41,25 +43,38 @@ $(document).ready(() => {
       dd.apply($container[0], diff);
 
       slideElements = $('.slide');
-      callback();
+      timer = $(slideElements[i]).data('duration') * 1000;
+      if(callback) { callback() };
     });
+  }
+
+  function loop() {
+    timer = timer - TICK_SIZE;
+    if(timer <= 0) {
+      i++;
+      if (i >= slideElements.length) { i = 0; }
+      transition(i);
+    }
+  }
+
+  function progress(time) {
+    $(".progress-bar").css('width', '0%');
+    $(".progress-bar").stop().animate({width: '100%'}, {easing: 'linear', duration: time});
   }
 
   function transition(i) {
     // Fade in new slide, fade out current slide
+    $(".progress-bar").css('width', '0%');
     $('.visible').removeClass('visible');
     $(slideElements[i]).addClass('visible');
-
-    // Prepare transition to next slide
-    i++;
-    if (i >= slideElements.length) { i = 0; }
 
     // Reload slides every time
     // we arrive at the first slide.
     if (i == 0) {
-      loadActiveSlides(() => { setTimeout(() => { transition(i) }, 3000) });
-    } else {
-      setTimeout(() => { transition(i) }, 3000);
-    }
+      loadActiveSlides();
+    } 
+
+    timer = $(slideElements[i]).data('duration') * 1000;
+    progress(timer);
   }
 });

@@ -5,3 +5,5 @@
 </div>
 
 <%= render 'form', slide: @slide %>
+
+<%= link_to "delete", @slide, method: :delete, data: { confirm: "Are you sure?" } %>

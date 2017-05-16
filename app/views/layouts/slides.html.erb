@@ -1,25 +1,27 @@
 <%= extends :application do %>
 
   <div class="sidebar">
-    <div class="thumb thumb-newslide<% if(action_name == 'new') %> active<% end %>">
-      <%= link_to new_slide_path, :title => 'New Slide' do %>
-        <p class="newslide">
-          New Slide
-        </p>
-      <% end %>
-    </div>
-
-    <% @slides.each do |slide| %>
-      <% if(@slide.present? && @slide.id == slide.id) %>
-      <div class="thumb active">
-      <% else %>
-      <div class="thumb">
-      <% end %>
-        <%= link_to edit_slide_path(slide), :title => 'Edit' do %>
-          <%= image_tag slide.content.image(:thumb) %>
+    <div class="sidebar-items">
+      <div class="thumb thumb-newslide<% if(action_name == 'new') %> active<% end %>">
+        <%= link_to new_slide_path, :title => 'New Slide' do %>
+          <p class="newslide">
+            New Slide
+          </p>
         <% end %>
       </div>
-    <% end %>
+
+      <% @slides.each do |slide| %>
+        <% if(@slide.present? && @slide.id == slide.id) %>
+        <div class="thumb active">
+        <% else %>
+        <div class="thumb">
+        <% end %>
+          <%= link_to edit_slide_path(slide), :title => 'Edit' do %>
+            <%= image_tag slide.content.image(:thumb) %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <div class="main">
