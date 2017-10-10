@@ -8,6 +8,6 @@ class ImageContent < ApplicationRecord
   validates :image, :attachment_presence => true
 
   def resource_url
-    image.url
+    image.url(:fullscreen)
   end
 end
