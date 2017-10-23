@@ -3,9 +3,9 @@ services:
 - docker
 language: ruby
 script:
-- docker build --no-cache --pull -t wisvch/password:$TRAVIS_BUILD_NUMBER .
+- docker build --no-cache --pull -t wisvch/tvsystem:$TRAVIS_BUILD_NUMBER .
 after_success:
 - if [ "${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}" == "master" ]; then
   docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-  docker push wisvch/password:$TRAVIS_BUILD_NUMBER;
+  docker push wisvch/tvsystem:$TRAVIS_BUILD_NUMBER;
   fi
