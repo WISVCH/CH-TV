@@ -81,6 +81,6 @@ class SlidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def slide_params
-      params.fetch(:slide, {}).permit(:content)
+      params.fetch(:slide, {}).permit(:content, :display_time)
     end
 end

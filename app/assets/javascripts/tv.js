@@ -15,21 +15,29 @@ class TV {
       $tempDOM = $('<div>').attr('id', 'slides');
 
       this.$container.empty();
-      // Load all data into an element in-memory
-      $.each(data, (i, slide) => {
-        if (slide.content_type == 'ImageContent') {
-          var element =
-            "<div class=\"slide\" data-duration=\"" + slide.display_time + "\">" +
-              "<img src=\"" + slide.content.resource_url + "\" />" +
-            "</div>";
 
-          this.$container.append(element);
-        }
-      });
+      if (data.length > 0) {
+        // Load all data into an element in-memory
+        $.each(data, (i, slide) => {
+          if (slide.content_type == 'ImageContent') {
+            var element =
+              "<div class=\"slide\" data-duration=\"" + slide.display_time + "\">" +
+                "<img src=\"" + slide.content.resource_url + "\" />" +
+              "</div>";
 
-      slideElements = $('.slide');
-      timer = $(slideElements[i]).data('duration') * 1000;
-      if(callback) { callback() };
+            this.$container.append(element);
+          }
+        });
+
+        slideElements = $('.slide');
+        timer = $(slideElements[i]).data('duration') * 1000;
+        if(callback) { callback() };
+      } else {
+        // No slides found, try again
+        let tryAgainSeconds = 5;
+        this.$container.html(`No slides found. Fetching every ${tryAgainSeconds} seconds.`);
+        timer = tryAgainSeconds * 1000;
+      }
     });
   }
 
