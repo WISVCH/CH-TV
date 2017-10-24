@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: tvsysteem_production
+  database: tvsysteem
   username: tvsysteem
   password: <%= ENV['TVSYSTEEM_DATABASE_PASSWORD'] %>
