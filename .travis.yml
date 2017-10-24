@@ -9,3 +9,5 @@ after_success:
   docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
   docker push wisvch/ch-tv:$TRAVIS_BUILD_NUMBER;
   fi
+notifications:
+  email: false
