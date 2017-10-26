@@ -22,7 +22,8 @@ RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
 ADD Gemfile* $APP_HOME/
-CMD bundle install && npm install
+RUN bundle install
+CMD npm install
 
 ADD . $APP_HOME
 
