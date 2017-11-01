@@ -29,6 +29,6 @@ ADD . $APP_HOME
 
 WORKDIR $APP_HOME
 CMD rake db:migrate
-CMD bin/rails server --port 3000 --binding 0.0.0.0
+CMD bin/rails server --port 3000 --binding=0.0.0.0
 
 EXPOSE 3000
