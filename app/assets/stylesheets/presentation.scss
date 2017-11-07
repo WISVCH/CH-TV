@@ -21,6 +21,7 @@
 
 .progress-container {
   position: absolute;
+  opacity: 0.3;
   height: 8px;
   width: 100%;
   bottom: 0;
@@ -28,7 +29,7 @@
   .progress-bar {
     width: 0%;
     height: 100%;
-    background-color: #ccc;
+    background-color: #0898e0;
   }
 }
 

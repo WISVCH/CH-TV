@@ -6,7 +6,10 @@ let slideElements;
 class TV {
   run($container) {
     this.$container = $container;
-    this.loadSlides(() => { this.transition(0); setInterval(() => { this.loop() }, TICK_SIZE); });
+    this.loadSlides(() => {
+      this.transition(0);
+      setInterval(() => { this.loop() }, TICK_SIZE);
+    });
   }
 
   loadSlides(callback) {
@@ -55,12 +58,10 @@ class TV {
   }
 
   progress(time) {
-    $(".progress-bar").css('width', '0%');
     $(".progress-bar").stop().animate({width: '100%'}, {easing: 'linear', duration: time});
   }
 
   transition(i) {
-    // Fade in new slide, fade out current slide
     $(".progress-bar").css('width', '0%');
     $('.visible').removeClass('visible');
     $(slideElements[i]).addClass('visible');
