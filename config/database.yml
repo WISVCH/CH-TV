@@ -12,7 +12,10 @@ default: &default
 development:
   <<: *default
   database: tvsysteem
+  username: tvsysteem
 
 production:
   <<: *default
   database: tvsysteem
+  username: tvsysteem
+  url: postgres://joost.chnet:5432
