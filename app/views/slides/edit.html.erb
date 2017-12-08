@@ -1,7 +1,13 @@
 <h1>Editing Slide</h1>
 
 <div class="slide_fullwidth">
+  <% if @slide.content.is_a? ImageContent %>
   <%= image_tag @slide.content.image(:medium) %>
+  <% elsif @slide.content.is_a? VideoContent %>
+    <video src="<%= @slide.content.video %>" controls></video>
+  <% else %>
+    <p>Unsupported slide type</p>
+  <% end %>
 </div>
 
 <%= render 'form', slide: @slide %>

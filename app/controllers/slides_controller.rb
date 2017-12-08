@@ -26,7 +26,13 @@ class SlidesController < ApplicationController
   # POST /slides.json
   def create
     @slide = Slide.new(slide_params)
-    @slide.content = ImageContent.new(image: params['slide']['image'])
+    if params['slide'].present?
+      if params['slide']['image'].present?
+        @slide.content = ImageContent.new(image: params['slide']['image'])
+      elsif params['slide']['video'].present?
+        @slide.content = VideoContent.new(video: params['slide']['video'])
+      end
+    end
 
     respond_to do |format|
       if @slide.content.save && @slide.save 
@@ -43,8 +49,12 @@ class SlidesController < ApplicationController
   # PATCH/PUT /slides/1.json
   def update
 
-    if params['slide'].present? && params['slide']['image'].present?
-      @slide.content = ImageContent.new(image: params['slide']['image'])
+    if params['slide'].present?
+      if params['slide']['image'].present?
+        @slide.content = ImageContent.new(image: params['slide']['image'])
+      elsif params['slide']['video'].present?
+        @slide.content = VideoContent.new(video: params['slide']['video'])
+      end
       @slide.content.save
     end
 

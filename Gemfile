@@ -46,6 +46,9 @@ gem 'rb-readline'
 # Nested layouts
 gem 'nestive', '~> 0.6.0'
 
+# For video thumbnails
+gem 'paperclip-av-transcoder'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

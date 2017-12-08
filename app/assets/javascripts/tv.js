@@ -22,14 +22,19 @@ class TV {
       if (data.length > 0) {
         // Load all data into an element in-memory
         $.each(data, (i, slide) => {
+          var element = '';
           if (slide.content_type == 'ImageContent') {
-            var element =
-              "<div class=\"slide\" data-duration=\"" + slide.display_time + "\">" +
-                "<img src=\"" + slide.content.resource_url + "\" />" +
-              "</div>";
-
-            this.$container.append(element);
+            element =
+              `<div class="slide" data-duration="${slide.display_time}" data-type="${slide.content_type}">
+                 <img src="${slide.content.resource_url}" />
+              </div>`;
+          } else if(slide.content_type == 'VideoContent') {
+            element =
+              `<div class="slide" data-duration="${slide.display_time}" data-type="${slide.content_type}">
+                <video src="${slide.content.resource_url}" muted />
+              </div>`;
           }
+          this.$container.append(element);
         });
 
         slideElements = $('.slide');
@@ -61,12 +66,30 @@ class TV {
     $(".progress-bar").stop().animate({width: '100%'}, {easing: 'linear', duration: time});
   }
 
-  transition(i) {
-    $(".progress-bar").css('width', '0%');
-    $('.visible').removeClass('visible');
-    $(slideElements[i]).addClass('visible');
+  setVideoState(slide, state) {
+    let videoElement = $(slide).find('video')[0];
+    if (videoElement === undefined) { return }
+    if (state == 'play') {
+      videoElement.play();
+    } else if (state == 'stop') {
+      videoElement.pause();
+      videoElement.currentTime = 0;
+    }
+  }
 
-    timer = $(slideElements[i]).data('duration') * 1000;
+  transition(i) {
+    let currentSlide = $('.visible')[0];
+    let nextSlide = slideElements[i];
+
+    $(currentSlide).removeClass('visible');
+    $(nextSlide).addClass('visible');
+
+    this.setVideoState(currentSlide, 'stop');
+    this.setVideoState(nextSlide, 'play');
+
+    $(".progress-bar").css('width', '0%');
+
+    timer = $(nextSlide).data('duration') * 1000;
     this.progress(timer);
   }
 }

@@ -16,9 +16,15 @@
         <% else %>
         <div class="thumb">
         <% end %>
+        <% if slide.content.is_a? ImageContent %>
           <%= link_to edit_slide_path(slide), :title => 'Edit' do %>
             <%= image_tag slide.content.image(:thumb) %>
           <% end %>
+        <% elsif slide.content.is_a? VideoContent %>
+          <%= link_to edit_slide_path(slide), :title => 'Edit' do %>
+            <%= image_tag slide.content.video(:thumb) %>
+          <% end %>
+        <% end %>
         </div>
       <% end %>
     </div>
