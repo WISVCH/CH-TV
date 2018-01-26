@@ -37,6 +37,9 @@ class TV {
           this.$container.append(element);
         });
 
+        // TEMPORARY: add company video
+        this.$container.append('<div class="slide" data-duration="83" data-type="VideoContent"><video src="https://frans.chnet/tv/sioux_tmp.mp4" muted autoplay loop width="100%" height="100%" /></div>');
+
         slideElements = $('.slide');
         timer = $(slideElements[i]).data('duration') * 1000;
         if(callback) { callback() };
