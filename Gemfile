@@ -38,7 +38,7 @@ source 'https://rails-assets.org' do
 end
 
 # Use Paperclip for image storage
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 5.2.0"
 
 # Ruby readline because the rails console wouldn't work for me
 gem 'rb-readline'
