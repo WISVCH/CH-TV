@@ -53,7 +53,7 @@ GEM
       sass (>= 3.4.19)
     builder (3.2.3)
     byebug (9.0.6)
-    climate_control (0.1.0)
+    climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     concurrent-ruby (1.0.5)
@@ -63,7 +63,8 @@ GEM
     ffi (1.9.18)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    i18n (0.8.1)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
       multi_json (~> 1.2)
@@ -84,14 +85,14 @@ GEM
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
-    minitest (5.10.1)
+    minitest (5.11.3)
     multi_json (1.12.1)
     nestive (0.6.0)
       rails (>= 3.0.0)
     nio4r (2.0.0)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
-    paperclip (5.0.0)
+    paperclip (5.2.1)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       cocaine (~> 0.5.5)
@@ -160,7 +161,7 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.6)
-    tzinfo (1.2.2)
+    tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (3.1.4)
       execjs (>= 0.3.0, < 3)
@@ -184,7 +185,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   nestive (~> 0.6.0)
-  paperclip (~> 5.0.0)
+  paperclip (~> 5.2.0)
   paperclip-av-transcoder
   pg (~> 0.18)
   puma (~> 3.0)
@@ -201,4 +202,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.3
+   1.16.1
